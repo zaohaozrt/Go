@@ -1,0 +1,16 @@
+//使用proto3语法
+syntax = "proto3";
+
+//最后生成的go文件在哪目录的那个包，.代表当前目录，service代表生成go文件的包名
+option go_package = ".;service";
+
+service SayHello{   //服务
+    rpc  SayHello(HelloRequet) returns (HelloResponse){} //方法
+}
+//类似于结构体
+message HelloRequet{
+    string requestName =1;//数字为定义变量在message中的位置
+}
+message HelloResponse{
+    string responseMgs = 1;
+}
